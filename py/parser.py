@@ -2,9 +2,9 @@
 
 import os
 
-in_dir = "/home/borabutt/matlab/hinp/csv_rev2"
+in_dir = "C:/Users/frien/Documents/research/matlab/hinp/py/si_data"
 #neg_fn = "../csv2"
-out_dir = "/home/borabutt/matlab/hinp/csv_rev2_parsed/"
+out_dir = "C:/Users/frien/Documents/research/matlab/hinp/py/output/"
 
 #ofile_pos = open("../csv/hg_pos_parsed.csv", 'w')
 #ofile_neg = open("../csv/hg_neg_parsed.csv", 'w')
@@ -12,7 +12,7 @@ channels = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', 
 
 for fn in os.listdir(in_dir):
     with open(os.path.join(in_dir, fn), 'r') as f:
-        ofile_hg_fn =  os.path.join(out_dir, fn[:-4] + "_hg_parsed.csv")
+        ofile_hg_fn = os.path.join(out_dir, fn[:-4] + "_hg_parsed.csv")
         ofile_lg_fn = os.path.join(out_dir, fn[:-4] + "_lg_parsed.csv")
         ofile_tvc_fn = os.path.join(out_dir, fn[:-4] + "_tvc_parsed.csv")
         ofile_hit_fn = os.path.join(out_dir, fn[:-4] + "_hit_parsed.csv")
