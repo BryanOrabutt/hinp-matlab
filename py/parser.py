@@ -2,7 +2,7 @@
 
 import os
 
-in_dir = "C:/Users/frien/Documents/research/matlab/hinp/py/si_data"
+in_dir = "C:/Users/frien/Documents/research/matlab/hinp/py/tvc/short/"
 #neg_fn = "../csv2"
 out_dir = "C:/Users/frien/Documents/research/matlab/hinp/py/output/"
 

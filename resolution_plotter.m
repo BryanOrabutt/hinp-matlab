@@ -1,6 +1,6 @@
 file_root = 'C:\Users\frien\Documents\research\matlab\hinp\py\output\';
-pos_data_file = [file_root 'chan5_100mv_neg_hg_parsed.csv'];
-neg_data_file = [file_root 'chan5_si_input_hg_parsed.csv'];
+pos_data_file = [file_root 'tvc_long_20ns_turbo_hg_parsed.csv'];
+neg_data_file = [file_root 'tvc_long_20ns_turbo_lg_parsed.csv'];
 
 pos_data = csvread(pos_data_file);
 neg_data = csvread(neg_data_file);
@@ -14,13 +14,14 @@ vcount = 3.3/adc_channels;
 figure; box on;
 %subplot(2,1,1); 
 pos_data = pos_data(:,6);
-pos_data = pos_data(pos_data < 2660);
+% pos_data = pos_data(pos_data < 2500);
 %pos_data = pos_data.*vcount.*100e3/.75;
-edges = 2500:1:2650;
+  edges = 780:1:2070;
 %xaxis = edges.*vcount.*100e3/.75;
 %h = histogram(pos_data, xaxis);
 %h = histfit(pos_data);
-h = histogram(pos_data, edges);
+%  h = histogram(pos_data);
+ h = histogram(pos_data, edges);
 channel_num = num2str(5);
    
 mc = h.BinCounts;
@@ -46,14 +47,14 @@ ylabel('Counts', 'FontWeight', 'Bold', 'FontSize', 24);
 xlabel('ADC Channel', 'FontWeight', 'Bold', 'FontSize', 24);
 ymax = max(h.BinCounts)*1.2;
 %ylim([0 ymax]);
-edges = h.BinEdges;
-xloc = edges(1:end-1) + diff(edges)/2;
-bin_counts = h.BinCounts;
-bin_counts(bin_counts==0) = -1;
-labels = string(bin_counts);
-labels = strrep(labels, '-1', '');
-text(xloc, bin_counts+1, labels, 'HorizontalAlignment', ...
-    'center', 'VerticalAlignment', 'bottom', 'FontSize', 14);
+% edges = h.BinEdges;
+% xloc = edges(1:end-1) + diff(edges)/2;
+% bin_counts = h.BinCounts;
+% bin_counts(bin_counts==0) = -1;
+% labels = string(bin_counts);
+% labels = strrep(labels, '-1', '');
+% text(xloc, bin_counts+1, labels, 'HorizontalAlignment', ...
+%     'center', 'VerticalAlignment', 'bottom', 'FontSize', 14);
 % 
 % subplot(2,1,2);
 % neg_data = neg_data(:,4);
