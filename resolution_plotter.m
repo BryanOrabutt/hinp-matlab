@@ -1,5 +1,5 @@
 file_root = 'C:\Users\frien\Documents\research\matlab\hinp\py\output\';
-pos_data_file = [file_root 'tvc_long_20ns_turbo_hg_parsed.csv'];
+pos_data_file = [file_root 'tvc_short_20ns_turbo_tvc_parsed.csv'];
 neg_data_file = [file_root 'tvc_long_20ns_turbo_lg_parsed.csv'];
 
 pos_data = csvread(pos_data_file);
@@ -7,6 +7,10 @@ neg_data = csvread(neg_data_file);
 
 pos_data(1,:) = [];
 neg_data(1,:) = [];
+
+figure; box on;
+
+scatter(1:1:length(pos_data(:,6)), pos_data(:,6));
 
 adc_channels = 2^14-1;
 vcount = 3.3/adc_channels;
@@ -20,8 +24,8 @@ pos_data = pos_data(:,6);
 %xaxis = edges.*vcount.*100e3/.75;
 %h = histogram(pos_data, xaxis);
 %h = histfit(pos_data);
-%  h = histogram(pos_data);
- h = histogram(pos_data, edges);
+ h = histogram(pos_data);
+%  h = histogram(pos_data, edges);
 channel_num = num2str(5);
    
 mc = h.BinCounts;
